@@ -1,9 +1,9 @@
 <?php
-$host = "localhost";
-$usuario = "a25hugberbat_apiDAW";
-$contrasenia = "zktzSR&{UxZ#-{9(";
-$base_de_datos = "a25hugberbat_apiDAW";
-$mysqli = new mysqli($host, $usuario, $contrasenia, $base_de_datos);
+// Les dades de connexió són a config.php, que NO es puja a GitHub.
+// Si no existeix, copia config.example.php amb el nom config.php i omple-la.
+$config = require __DIR__ . "/config.php";
+
+$mysqli = new mysqli($config["host"], $config["usuario"], $config["contrasenia"], $config["base_de_datos"]);
 if ($mysqli->connect_errno) {
     echo "Falló la conexión a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
